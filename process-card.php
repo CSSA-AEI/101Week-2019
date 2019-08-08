@@ -92,6 +92,7 @@ $request_body = array (
   # the buyer.
   "idempotency_key" => uniqid(),
   "buyer_email_address" => $_POST['b-email'],
+  /**
   "billing_address" => array (
     'address_line_1' => $_POST['b-street-address'],
     'address_line_2' => $_POST['b-unit-number'],
@@ -102,13 +103,14 @@ $request_body = array (
     'first_name' => $_POST['b-first-name'],
     'last_name' => $_POST['b-last-name']
 )
+   */
 );
 
 # The SDK throws an exception if a Connect endpoint responds with anything besides
 # a 200-level HTTP code. This block catches any exceptions that occur from the request.
 try {
   $result = $transactions_api->charge($location_id, $request_body);
-  date_default_timezone_set('ETC');
+  date_default_timezone_set('EST');
   $values = [
 	[
 		$_POST['first-name'],
@@ -116,10 +118,11 @@ try {
 		$_POST['student-num'],
 		$_POST['email'],
 		$_POST['diet'],
-		$_POST['disabled'],
+		$_POST['physical'],
+		$_POST['medication'],
 		$_POST['health-num'],
-		$_POST['emerg'],
-		$_POST['emerg-num'],
+		$_POST['em-name'],
+		$_POST['em-num'],
 		$_POST['b-email'],
 		$_POST['b-street-address'],
 		$_POST['b-unit-number'],

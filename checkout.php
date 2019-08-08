@@ -190,7 +190,7 @@ $dotenv->load();
 							</div>
 						<div>
 						<div class ="col-lg-12">
-						 <small style="color: #4E6766;" class="font-italic d-block mb-3">We do not keep or store any of this information, payment processing is powered by square .</small>
+						 <small style="color: #4E6766;" class="font-italic d-block mb-3">We do share any of this information not do we store credit card information, payment processing is powered by square .</small>
             </div>
           </div>
                       </div>
