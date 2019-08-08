@@ -145,11 +145,11 @@ try {
   echo "<pre>";
   echo "Success!";
   echo "</pre>";
-  echo "<a href='https://101.cssa-aei.ca'>back to home</a>"
+  echo "<a href='https://101.cssa-aei.ca'>back to home</a>";
 
 } catch (\SquareConnect\ApiException $e) {
   echo "<pre>";
   echo "Failed!";
   echo "</pre>";
-  echo "<a href='https://101.cssa-aei.ca/checkout.php'>try again</a>"
+  echo "<a href='https://101.cssa-aei.ca/checkout.php'>try again</a>";
 }
