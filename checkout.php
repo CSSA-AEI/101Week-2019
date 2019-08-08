@@ -199,38 +199,38 @@ $dotenv->load();
 								<input type="text" class="form-control" name="b-last-name" id="b-last-name" placeholder="" />
 							</div>
 							<div class="form-group col-lg-4">
-								<label for="b-input-text" class="control-label">Email <span style="color:red;">*</span></label>
-								<input type="number" class="form-control" name="b-input-text" id="b-input-text" placeholder="" />
+								<label for="b-email" class="control-label">Email <span style="color:red;">*</span></label>
+								<input type="email" class="form-control" name="b-email" id="b-email" placeholder="" />
 							</div>
 						<div>
 						<div class="form-row">
 							<div class="form-group col-lg-4">
-								<label for="b-first-name" class="control-label">Unit Number (if applicable)</span></label>
-								<input type="text" class="form-control" id="b-first-name" name="b-first-name" placeholder="" />
+								<label for="b-unit-number" class="control-label">Unit Number (if applicable)</span></label>
+								<input type="text" class="form-control" id="b-unit-number" name="b-unit-number" placeholder="" />
 							</div>
 							<div class="form-group col-lg-4">
-								<label for="b-last-name" class="control-label">Street Address<span style="color:red;">*</span></label>
-								<input type="text" class="form-control" name="b-last-name" id="b-last-name" placeholder="" />
+								<label for="b-street-address" class="control-label">Street Address<span style="color:red;">*</span></label>
+								<input type="text" class="form-control" name="b-street-address" id="b-street-address" placeholder="" />
 							</div>
 							<div class="form-group col-lg-4">
-								<label for="b-input-text" class="control-label">Postal Code <span style="color:red;">*</span></label>
-								<input type="number" class="form-control" name="b-input-text" id="b-input-text" placeholder="" />
+								<label for="b-postal-code" class="control-label">Postal Code <span style="color:red;">*</span></label>
+								<input type="text" class="form-control" name="b-postal-code" id="b-postal-code" placeholder="" />
 							</div>
 						<div>
 						<div class="form-row">
 							<div class="form-group col-lg-4">
-								<label for="b-first-name" class="control-label">Country <span style="color:red;">*</span></label>
-								<input type="text" class="form-control" id="b-first-name" name="b-first-name" placeholder="" />
+								<label for="b-country" class="control-label">Country <span style="color:red;">*</span></label>
+								<input type="text" class="form-control" id="b-country" name="b-country" placeholder="" />
 							</div>
 							<div class="form-group col-lg-4">
-								<label for="b-last-name" class="control-label">Province <span style="color:red;">*</span></label>
-								<input type="text" class="form-control" name="b-last-name" id="b-last-name" placeholder="" />
+								<label for="b-province" class="control-label">Province <span style="color:red;">*</span></label>
+								<input type="text" class="form-control" name="b-province" id="b-province" placeholder="" />
 							</div>
 							<div class="form-group col-lg-4">
-								<label for="b-input-text" class="control-label">City <span style="color:red;">*</span></label>
-								<input type="number" class="form-control" name="b-input-text" id="b-input-text" placeholder="" />
+								<label for="b-city" class="control-label">City <span style="color:red;">*</span></label>
+								<input type="text" class="form-control" name="b-city" id="b-city" placeholder="" />
 							</div>
-						<div>
+						</div>
 						<div class ="col-lg-12">
 						  <small style="color: #4E6766;" class="font-italic d-block mb-3">We do not keep or store any of this information, payment processing is powered by square .</small>
             </div>
