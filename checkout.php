@@ -27,11 +27,11 @@ $dotenv->load();
     <!-- link to the SqPaymentForm library -->
     <script type="text/javascript" src="https://js.squareup.com/v2/paymentform">
     </script>
-    <!-- link to the local SqPaymentForm initialization -->
+    <!-- link to the local SqPaymentForm initialization 
     <script type="text/javascript" src="mysqpaymentform.js">
-    </script>
-    <!-- link to the local custom styles for SqPaymentForm -->
-    <link rel="stylesheet" type="text/css" href="mysqpaymentform.css">
+    </script>-->
+    <!-- link to the local custom styles for SqPaymentForm 
+    <link rel="stylesheet" type="text/css" href="mysqpaymentform.css">-->
 
     <title>101 Week CSSA - Semaine 101 AESA</title>
 
@@ -75,49 +75,6 @@ $dotenv->load();
   <link rel="stylesheet" type="text/css" href="css/sq-payment-form.css">
   </head>
   <body id="page-top">
-      <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-          <div class="container">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                  </button>
-                  <a data-en class="navbar-brand page-scroll" href="#page-top">101 WEEK</a>
-                  <a data-fr class="navbar-brand page-scroll" href="#page-top">SEMAINE 101</a>
-              </div>
-  
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right">
-                      <li>
-                          <a data-en class="page-scroll" href="#what">101 Week</a>
-                          <a data-fr class="page-scroll" href="#what">Semaine 101</a>
-                      </li>
-                      <li>
-                          <a data-en class="page-scroll" href="#the-kit">The Kit</a>
-                          <a data-fr class="page-scroll" href="#the-kit">La Trousse</a>
-                      </li>
-                      <li>
-                          <a data-en class="page-scroll" href="#schedule">The Schedule</a>
-                          <a data-fr class="page-scroll" href="#schedule">L'horaire</a>
-                      </li>
-                      <li>
-                          <a data-en class="page-scroll" href="#who">Who Are We?</a>
-                          <a data-fr class="page-scroll" href="#who">Who Are We?</a>
-                      </li>
-                      <li>
-                          <a data-en class="page-scroll" href="#ticket">Buy the Kit</a>
-                          <a data-fr class="page-scroll" href="#ticket">Buy the Kit</a>
-                      </li>
-                      <li>
-                          <a id="lang-button">Français</a>
-                      </li>
-                  </ul>
-              </div>
-              <!-- /.navbar-collapse -->
-          </div>
-          <!-- /.container-fluid -->
-      </nav>
 
       <section id="schedule" class="features">
           <div class="container">
@@ -127,6 +84,7 @@ $dotenv->load();
 					      <h2 data-fr>L'horaire</h2><br>
 				      </div>
 			      </div>
+<form id="nonce-form" novalidate action="/process-card.php" method="post">
             <div class="row">
             <div class="form-row">
 							<div class="form-group col-lg-4">
@@ -166,9 +124,9 @@ $dotenv->load();
 						<div>
 						<div class="form-row">
 							<div class="form-group col-lg-12">
-								<label for="medication" class="control-label">If you have any physical disabilities or accessibility needs, please list them here:</label>
+								<label for="medication" class="control-label">If you take any medications, please list them here:</label>
 								<textarea name="medication" id="medication" class="text_area " rows="4" cols="100"></textarea>
-								<small style="color: #4E6766;" class="font-italic d-block mb-3">All information provided will be kept confidential between the VP Social and select members of the 101 week team.</small>
+								<small style="color: #4E6766;" class="font-italic d-block mb-3"></br>All information provided will be kept confidential between the VP Social and select members of the 101 week team.</small>
 							</div>
 						<div>
 						<br/><hr/>
@@ -200,42 +158,46 @@ $dotenv->load();
 							</div>
 							<div class="form-group col-lg-4">
 								<label for="b-input-text" class="control-label">Email <span style="color:red;">*</span></label>
-								<input type="number" class="form-control" name="b-input-text" id="b-input-text" placeholder="" />
+								<input type="text" class="form-control" name="b-email" id="b-email" placeholder="" />
 							</div>
 						<div>
 						<div class="form-row">
 							<div class="form-group col-lg-4">
-								<label for="b-first-name" class="control-label">Unit Number (if applicable)</span></label>
-								<input type="text" class="form-control" id="b-first-name" name="b-first-name" placeholder="" />
+								<label for="b-input-text" class="control-label">Unit Number (if applicable)</span></label>
+								<input type="text" class="form-control" id="b-unit-number" name="b-unit-number" placeholder="" />
 							</div>
 							<div class="form-group col-lg-4">
-								<label for="b-last-name" class="control-label">Street Address<span style="color:red;">*</span></label>
-								<input type="text" class="form-control" name="b-last-name" id="b-last-name" placeholder="" />
+								<label for="b-input-text" class="control-label">Street Address<span style="color:red;">*</span></label>
+								<input type="text" class="form-control" name="b-street-address" id="b-street-address" placeholder="" />
 							</div>
 							<div class="form-group col-lg-4">
 								<label for="b-input-text" class="control-label">Postal Code <span style="color:red;">*</span></label>
-								<input type="number" class="form-control" name="b-input-text" id="b-input-text" placeholder="" />
+								<input type="text" class="form-control" name="b-postal-code" id="b-postal-code" placeholder="" />
 							</div>
 						<div>
 						<div class="form-row">
 							<div class="form-group col-lg-4">
-								<label for="b-first-name" class="control-label">Country <span style="color:red;">*</span></label>
-								<input type="text" class="form-control" id="b-first-name" name="b-first-name" placeholder="" />
-							</div>
-							<div class="form-group col-lg-4">
-								<label for="b-last-name" class="control-label">Province <span style="color:red;">*</span></label>
-								<input type="text" class="form-control" name="b-last-name" id="b-last-name" placeholder="" />
-							</div>
-							<div class="form-group col-lg-4">
 								<label for="b-input-text" class="control-label">City <span style="color:red;">*</span></label>
-								<input type="number" class="form-control" name="b-input-text" id="b-input-text" placeholder="" />
+								<input type="text" class="form-control" name="b-city" id="b-city" placeholder="" />
+							</div>
+							<div class="form-group col-lg-4">
+								<label for="b-input-text" class="control-label">Province <span style="color:red;">*</span></label>
+								<input type="text" class="form-control" name="b-province" id="b-province" placeholder="" />
+							</div>
+							<div class="form-group col-lg-4">
+								<label for="b-input-text" class="control-label">Country <span style="color:red;">*</span></label>
+								<input type="text" class="form-control" id="b-country" name="b-country" placeholder="" />
 							</div>
 						<div>
 						<div class ="col-lg-12">
-						  <small style="color: #4E6766;" class="font-italic d-block mb-3">We do not keep or store any of this information, payment processing is powered by square .</small>
+						 <small style="color: #4E6766;" class="font-italic d-block mb-3">We do not keep or store any of this information, payment processing is powered by square .</small>
             </div>
+          </div>
+                      </div>
+                  </div>
+      </section>
 <!-- Begin Payment Form -->
-  <div class="sq-payment-form">
+  <div class="sq-payment-form" style="width: 50%;margin: 0 auto;">
     <!--
       Square's JS will automatically hide these buttons if they are unsupported
       by the current device.
@@ -289,11 +251,7 @@ $dotenv->load();
     </div>
   </div>
   <!-- End Payment Form -->
-          </div>
-                      </div>
-                  </div>
               </div>
-      </section>
        <footer>
           <div class="container">
               <p data-en>&copy; Computer Science Student Association</p>

@@ -40,6 +40,41 @@ if (is_null($nonce)) {
 
 $transactions_api = new \SquareConnect\Api\TransactionsApi();
 
+/**
+# Creating a new Charge
+$chargeBody = new \SquareConnect\Model\ChargeRequest() ;
+
+// Create an Address object with billing info
+$billingAddress = new \SquareConnect\Model\Address() ;
+$billingAddress->setAddressLine1($_POST['b-street-address']);
+$billingAddress->setAddressLine2($_POST['b-unit-number']);
+$billingAddress->setLocality($_POST['b-city']);
+$billingAddress->setAdministrativeDistrictLevel1($_POST['b-province']);
+$billingAddress->setPostalCode($_POST['b-postal-code']);
+$billingAddress->setCountry($_POST['b-country']);
+
+$billingAddress->setFirstName($_POST['b-first-name']);
+$billingAddress->setLastName($_POST['b-last-name']);
+
+// Set the customer info
+$chargeBody->setBuyerEmailAddress($_POST['b-email']);
+$chargeBody->setBillingAddress($billingAddress);
+
+$idempotencyKey = uniqid();
+
+// Set the charge amount to 103 CAD
+$chargeAmount =  new \SquareConnect\Model\Money() ;
+$chargeAmount->setAmount(10300);
+$chargeAmount->setCurrency("CAD");
+
+// Set the payment information
+$chargeBody->setIdempotencyKey($idempotencyKey);
+$chargeBody->setCardNonce($nonce);
+$chargeBody->setAmount($chargeAmount);
+
+$chargeBody->setNote("CSSA-AEI 101 Week Kit");
+ */
+
 # To learn more about splitting transactions with additional recipients,
 # see the Transactions API documentation on our [developer site]
 # (https://docs.connect.squareup.com/payments/transactions/overview#mpt-overview).
@@ -55,17 +90,25 @@ $request_body = array (
   # If you're unsure whether a particular payment succeeded, you can reattempt
   # it with the same idempotency key without worrying about double charging
   # the buyer.
-  "idempotency_key" => uniqid()
+  "idempotency_key" => uniqid(),
+  "buyer_email_address" => $_POST['b-email'],
+  "billing_address" => array (
+    'address_line_1' => $_POST['b-street-address'],
+    'address_line_2' => $_POST['b-unit-number'],
+    'locality' => $_POST['b-city'],
+    'administrative_district_level_1' => $_POST['b-province'],
+    'postal_code' => $_POST['b-postal-code'],
+    'country' => $_POST['b-country'],
+    'first_name' => $_POST['b-first-name'],
+    'last_name' => $_POST['b-last-name']
+)
 );
 
 # The SDK throws an exception if a Connect endpoint responds with anything besides
 # a 200-level HTTP code. This block catches any exceptions that occur from the request.
 try {
   $result = $transactions_api->charge($location_id, $request_body);
-  echo "<pre>";
-  print_r($result);
-  echo "</pre>";
-  echo print_r($_POST);
+  date_default_timezone_set('ETC');
   $values = [
 	[
 		$_POST['first-name'],
@@ -77,10 +120,21 @@ try {
 		$_POST['health-num'],
 		$_POST['emerg'],
 		$_POST['emerg-num'],
+		$_POST['b-email'],
+		$_POST['b-street-address'],
+		$_POST['b-unit-number'],
+ 		$_POST['b-city'],
+		$_POST['b-province'],
+		$_POST['b-postal-code'],
+		$_POST['b-country'],
+		$_POST['b-first-name'],
+		$_POST['b-last-name'],
+		date('Y-m-d H:i:s'),
+
 	],
   ];
   $valueInputOption = 'RAW';
-  $range = "Sheet2";
+  $range = "Sheet1";
   $body = new Google_Service_Sheets_ValueRange([
 	  'values' => $values
   ]);
@@ -88,11 +142,14 @@ try {
 	      'valueInputOption' => $valueInputOption
   ];
   $result = $service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
+  echo "<pre>";
+  echo "Success!";
+  echo "</pre>";
+  echo "<a href='https://101.cssa-aei.ca'>back to home</a>"
 
 } catch (\SquareConnect\ApiException $e) {
-  echo "Caught exception!<br/>";
-  print_r("<strong>Response body:</strong><br/>");
-  echo "<pre>"; var_dump($e->getResponseBody()); echo "</pre>";
-  echo "<br/><strong>Response headers:</strong><br/>";
-  echo "<pre>"; var_dump($e->getResponseHeaders()); echo "</pre>";
+  echo "<pre>";
+  echo "Failed!";
+  echo "</pre>";
+  echo "<a href='https://101.cssa-aei.ca/checkout.php'>try again</a>"
 }

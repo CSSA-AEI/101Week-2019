@@ -1,6 +1,6 @@
 {
   "require": {
-    "square/connect": "^2.20",
+    "square/connect": "*",
     "vlucas/phpdotenv": "^3.1",
     "google/apiclient": "^2.0"
   }
