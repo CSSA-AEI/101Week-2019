@@ -40,6 +40,39 @@ if (is_null($nonce)) {
 
 $transactions_api = new \SquareConnect\Api\TransactionsApi();
 
+# Creating a new Charge
+$chargeBody = new \SquareConnect\ChargeRequest() ;
+
+// Create an Address object with billing info
+$billingAddress = new \SquareConnect\Address() ;
+$billingAddress->setAddressLine1($_POST['b-street-address']);
+$billingAddress->setAddressLine2($_POST['b-unit-number']);
+$billingAddress->setLocality($_POST['b-city']);
+$billingAddress->setAdministrativeDistrictLevel1($_POST['b-province']);
+$billingAddress->setPostalCode($_POST['b-postal-code']);
+$billingAddress->setCountry($_POST['b-country']);
+
+$billingAddress->setFirstName($_POST['b-first-name']);
+$billingAddress->setLastName($_POST['b-last-name']);
+
+// Set the customer info
+$chargeBody->setBuyerEmailAddress($_POST['b-email']);
+$chargeBody->setBillingAddress($billingAddress);
+
+$idempotencyKey = uniqid();
+
+// Set the charge amount to 103 CAD
+$chargeAmount =  new \SquareConnect\Money() ;
+$chargeAmount->setAmount(10300);
+$chargeAmount->setCurrency("CAD");
+
+// Set the payment information
+$chargeBody->setIdempotencyKey($idempotencyKey);
+$chargeBody->setCardNonce($nonce);
+$chargeBody->setAmount($chargeAmount);
+
+$chargeBody->setNote("CSSA-AEI 101 Week Kit");
+
 # To learn more about splitting transactions with additional recipients,
 # see the Transactions API documentation on our [developer site]
 # (https://docs.connect.squareup.com/payments/transactions/overview#mpt-overview).
@@ -61,7 +94,7 @@ $request_body = array (
 # The SDK throws an exception if a Connect endpoint responds with anything besides
 # a 200-level HTTP code. This block catches any exceptions that occur from the request.
 try {
-  $result = $transactions_api->charge($location_id, $request_body);
+  $result = $transactions_api->charge($location_id, $chargeBody);
   echo "<pre>";
   print_r($result);
   echo "</pre>";
