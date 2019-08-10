@@ -83,7 +83,7 @@ $request_body = array (
   # Monetary amounts are specified in the smallest unit of the applicable currency.
   # This amount is in cents. It's also hard-coded for $1.00, which isn't very useful.
   "amount_money" => array (
-    "amount" => 10000,
+    "amount" => 10300,
     "currency" => "CAD"
   ),
   # Every payment you process with the SDK must have a unique idempotency key.

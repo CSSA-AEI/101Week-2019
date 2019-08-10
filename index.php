@@ -107,6 +107,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h2 data-en class="section-heading">Wait...what is 101 week?</h2>
                     <h2 data-fr class="section-heading">Attends ... qu'est-ce qu'il y a 101 semaines?</h2>
+		<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/STCkGPHi354" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <p data-en>Every year each student association puts on a week packed with events. These events are meant to introduce you to your fellow Computer Science students, as well as your peers in other faculties such as Science or Engineering. The week is going to be filled with exciting event! There will be a lot to do! Thinking this sounds pretty great? Well all you need to enjoy it is a CSI 101 Week Kit.</p>
                     <p data-en>Find out more about your program, meet new people and make friends you'll keep for the rest of your life, and get an introduction to unversity life. It'll be a week you'll never forget!</p>
                     <p data-en>This year 101 week will take place <u>August 31st to September 6th</u></p>
